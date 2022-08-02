@@ -1,0 +1,16 @@
+{
+  "name": "server-trello-clone",
+  "version": "1.0.0",
+  "description": "trello clone api using nodejs, express and socket.io",
+  "main": "index.js",
+  "scripts": {
+    "//": "nodemon will automatically understand that it should use ts-node to transpile ts",
+    "start:dev": "nodemon src/server.ts"
+  },
+  "author": "Ahmed Boghdady",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.9.1"
+  }
+}
