@@ -1,0 +1,9 @@
+= #connnect to mongodb using docker
+1-download mongodb image to docker and run it in the background using -d:
+docker run -d -p 27017-27019:27017-27019 --name mongodb mongo:4.0.4
+
+2-if we want to go inside mongo shell inside mongodb docker image use this command:
+docker exec -it mongodb mongo
+
+
+
