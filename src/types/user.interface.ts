@@ -10,5 +10,5 @@ export interface User {
 
 // This interface will use in user schema
 export interface UserDocument extends User, Document {
-  validatePassword(pass: string): Promise<Boolean>;
+  validatePassword(pass: string): Promise<boolean>;
 }

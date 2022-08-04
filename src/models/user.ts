@@ -40,7 +40,7 @@ userSchema.pre('save', async function (next) {
 
 userSchema.methods.validatePassword = async function (
   password: string
-): Promise<Boolean> {
+): Promise<boolean> {
   return await bcryptjs.compare(password, this.password);
 };
 

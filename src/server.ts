@@ -2,14 +2,20 @@ import express from 'express';
 import { createServer } from 'http';
 import { Server, Socket } from 'socket.io';
 import mongoose from 'mongoose';
+import userRouter from './routes/user';
+import globalError from './middlewares/globalError';
 
 const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer);
 
-app.get('/', (req, res) => {
-  res.json({ msg: 'App working successfully' });
-});
+// Global middlewares
+app.use(express.json());
+// routes
+app.use('/api/v1/users', userRouter);
+
+// Global error handling middleware for express
+app.use(globalError);
 
 io.on('connection', (socket: Socket) => {
   console.log('Connected to socket.io server successfully');
