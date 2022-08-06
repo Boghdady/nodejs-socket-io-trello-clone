@@ -2,6 +2,7 @@ import express from 'express';
 import { createServer } from 'http';
 import { Server, Socket } from 'socket.io';
 import mongoose from 'mongoose';
+import cors from 'cors';
 import userRouter from './routes/user';
 import globalError from './middlewares/globalError';
 
@@ -9,6 +10,7 @@ const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer);
 
+app.use(cors());
 // Global middlewares
 app.use(express.json());
 // routes
