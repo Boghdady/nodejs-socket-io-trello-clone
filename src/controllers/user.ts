@@ -6,6 +6,7 @@ import User from '../models/user';
 import { UserDocument } from '../types/user.interface';
 import { JWT_SECRET } from '../config';
 import ApiError from '../utils/apiError';
+import ExpressRequestInterface from '../types/expressRequest.interface';
 
 const normalizeUser = (user: UserDocument) => {
   const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET);
@@ -38,5 +39,13 @@ export const login = asyncHandler(
     }
 
     res.status(200).send(normalizeUser(user));
+  }
+);
+
+export const getCurrentUser = asyncHandler(
+  async (req: ExpressRequestInterface, res: Response, next: NextFunction) => {
+    if (req.user) {
+      res.status(200).send(normalizeUser(req.user));
+    }
   }
 );
