@@ -22,12 +22,12 @@ app.use('/api/v1/boards', boardRouter);
 app.use(globalError);
 
 // return only id and delete _id
-// mongoose.set('toJSON', {
-//   virtuals: true,
-//   transform: (_, converted) => {
-//     delete converted._id;
-//   },
-// });
+mongoose.set('toJSON', {
+  virtuals: true,
+  transform: (_, converted) => {
+    delete converted._id;
+  },
+});
 
 io.on('connection', (socket: Socket) => {
   console.log('Connected to socket.io server successfully');
