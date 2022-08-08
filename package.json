@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "//": "nodemon will automatically understand that it should use ts-node to transpile ts",
-    "start:dev": "NODE_ENV=development nodemon src/server.ts",
+    "start:dev": "NODE_ENV=production nodemon src/server.ts",
     "start:prod": "NODE_ENV=production node dist/server.js"
   },
   "author": "Ahmed Boghdady",
